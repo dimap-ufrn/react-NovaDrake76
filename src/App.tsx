@@ -1,5 +1,5 @@
-import './App.css'
+import Cart from "./pages/Cart/Cart";
 
 export default function App() {
-  return <div>Olá mundo!</div>
+  return <Cart />;
 }
