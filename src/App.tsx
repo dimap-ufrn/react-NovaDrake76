@@ -1,5 +1,5 @@
-import Cart from "./pages/Cart/Cart";
+import Menu from "./pages/Menu/menu";
 
 export default function App() {
-  return <Cart />;
+  return <Menu />;
 }

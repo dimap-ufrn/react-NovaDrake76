@@ -27,9 +27,18 @@ function Resume({ items, cep, setCep, freight, setFreight }: ResumeProps) {
     {
       items: [
         {
-          name: `Itens (${items.lenght || 0})`,
+          name: `Itens (${items.reduce(
+            (acc: any, item: any) => acc + item.quantity,
+            0
+          )})`,
           value: items.reduce(
-            (acc: any, item: { price: any }) => acc + item.price,
+            (
+              acc: any,
+              item: {
+                quantity: any;
+                price: any;
+              }
+            ) => acc + item.price * item.quantity,
             0
           ),
         },
@@ -72,7 +81,13 @@ function Resume({ items, cep, setCep, freight, setFreight }: ResumeProps) {
         <h3 className="font-bold">
           {new Intl.NumberFormat("pt-BR", formatting_options).format(
             items.reduce(
-              (acc: any, item: { price: any }) => acc + item.price,
+              (
+                acc: any,
+                item: {
+                  quantity: any;
+                  price: any;
+                }
+              ) => acc + item.price * item.quantity,
               0
             ) + freight
           )}
