@@ -96,7 +96,7 @@ function PaymentStep({ setStep }: PaymentStepProps) {
           ))}
         </div>
         <MainButton
-          title="Finalizar compra"
+          title="Realizar Pagamento"
           onClick={() => {
             setStep(1);
           }}
