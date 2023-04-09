@@ -53,7 +53,7 @@ function Menu() {
   return (
     <div>
       <Navbar items={items} setItems={setItems} />
-      <div className="flex w-full justify-center h-screen bg-[url('../../src/images/bg.webp')]">
+      <div className={`flex w-full justify-center h-screen bg-hero`}>
         <div className="max-w-7xl shadow-sm flex w-full justify-around items-center gap-4 md:gap-0 mt-4 md:mt-0 flex-col md:flex-row">
           {menu.map((item) => (
             <MenuItem item={item} items={items} setItems={setItems} />
