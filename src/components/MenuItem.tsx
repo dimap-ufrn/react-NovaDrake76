@@ -1,5 +1,5 @@
 import MainButton from "./MainButton";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
 
 interface CartItemProps {

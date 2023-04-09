@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar";
+import { useState } from "react";
+
 import Pizza from "../../images/pizza.webp";
 import Burguer from "../../images/burguer.webp";
 import Fries from "../../images/fries.webp";
-import MenuItem from "../../components/MenuItem";
 import Pastel from "../../images/pastel.webp";
 import Snacks from "../../images/snacks.webp";
 import Drinks from "../../images/drinks.webp";
@@ -11,6 +10,9 @@ import Coca from "../../images/coca.webp";
 import Fanta from "../../images/fanta.webp";
 import Sprite from "../../images/sprite.webp";
 import Guarana from "../../images/guarana.webp";
+
+import Navbar from "../../components/Navbar";
+import MenuItem from "../../components/MenuItem";
 
 function Menu() {
   const [items, setItems] = useState<any>([]);
