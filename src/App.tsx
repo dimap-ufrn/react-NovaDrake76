@@ -1,4 +1,4 @@
-import Menu from "./pages/Menu/menu";
+import Menu from "./pages/Menu/Menu";
 
 export default function App() {
   return <Menu />;
