@@ -4,6 +4,7 @@ import Pizza from "../../images/pizza.webp";
 import Burguer from "../../images/burguer.webp";
 import Fries from "../../images/fries.webp";
 import MenuItem from "../../components/MenuItem";
+import Bg from "../../images/bg.webp";
 
 function Menu() {
   const [items, setItems] = useState<any>([]);
@@ -34,26 +35,10 @@ function Menu() {
     },
   ];
 
-  const addItem = (item: any) => {
-    const itemExists = items.find((i: any) => i.id === item.id);
-    if (itemExists) {
-      setItems(
-        items.map((i: any) => {
-          if (i.id === item.id) {
-            return { ...i, quantity: i.quantity + 1 };
-          }
-          return i;
-        })
-      );
-    } else {
-      setItems([...items, item]);
-    }
-  };
-
   return (
     <div>
       <Navbar items={items} setItems={setItems} />
-      <div className={`flex w-full justify-center h-screen bg-hero`}>
+      <div className={`flex w-full justify-center h-screen `}>
         <div className="max-w-7xl shadow-sm flex w-full justify-around items-center gap-4 md:gap-0 mt-4 md:mt-0 flex-col md:flex-row">
           {menu.map((item) => (
             <MenuItem item={item} items={items} setItems={setItems} />
