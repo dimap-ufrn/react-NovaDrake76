@@ -45,7 +45,7 @@ function Cart({ items, setItems }: CartProps) {
                 {items.reduce((acc: any, item: any) => acc + item.quantity, 0)}{" "}
                 {items.length > 1 ? "itens" : "item"}
               </p>
-              <div className="flex flex-col gap-4 mt-4 h-60 overflow-scroll">
+              <div className="flex flex-col gap-4 mt-4 h-60 overflow-auto">
                 {items.map((item: any) => (
                   <CartItem item={item} items={items} setItems={setItems} />
                 ))}
