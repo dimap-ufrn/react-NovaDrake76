@@ -1,6 +1,6 @@
-import Cart from "../pages/Cart/Cart";
+import Cart from "./Cart/Cart";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../images/logo.png";
 
 interface NavbarProps {
@@ -30,11 +30,13 @@ function Navbar({ items, setItems }: NavbarProps) {
             {items.reduce((acc: any, item: any) => acc + item.quantity, 0)}
           </div>
         </div>
-        {openCart && (
-          <div className="absolute flex justify-end mt-16 left-1/2">
-            <Cart items={items} setItems={setItems} />
-          </div>
-        )}
+        <div
+          className={`absolute flex justify-end mt-16 left-1/2 transition-all ${
+            openCart === false ? "opacity-0 -z-10" : "opacity-100 z-10"
+          }`}
+        >
+          <Cart items={items} setItems={setItems} />
+        </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const CepCalc = ({ cep, setCep, setFreight }: CepCalcProps) => {
   return (
     <div className="flex flex-col gap-1 ">
       <div className="flex gap-2 items-center">
-        <h3>CEP</h3>
+        <span>CEP</span>
         <InputMask
           mask="99999-999"
           maskChar=" "

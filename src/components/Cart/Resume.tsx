@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MainButton from "../../components/MainButton";
-import CepCalc from "../../components/CepCalc";
+import MainButton from "../MainButton";
+import CepCalc from "../CepCalc";
 
 interface ResumeProps {
   items: any;
@@ -96,6 +96,7 @@ function Resume({ items, cep, setCep, freight, setFreight }: ResumeProps) {
       <div className="mt-2 w-full">
         <MainButton
           title="Finalizar compra"
+          disable={items.length === 0}
           onClick={() => {
             console.log("Finalizar compra");
           }}

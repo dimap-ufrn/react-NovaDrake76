@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Pizza from "../../images/pizza.webp";
-// import Burguer from "../../images/burguer.webp";
+import Burguer from "../../images/burguer.webp";
 import Fries from "../../images/fries.webp";
+import MenuItem from "../../components/MenuItem";
 
 function Menu() {
   const [items, setItems] = useState<any>([]);
@@ -12,7 +13,7 @@ function Menu() {
       name: "Pizza",
       price: 19.99,
       quantity: 1,
-      description: "Pizza de calabresa",
+      description: "Pizza de calabresa com queijo.",
       img: Pizza,
     },
     {
@@ -20,25 +21,25 @@ function Menu() {
       name: "Burger",
       price: 11.99,
       quantity: 1,
-      description: "Burger de frango",
-      img: Pizza,
+      description: "Burger 200 gramas de carne.",
+      img: Burguer,
     },
     {
       id: 2,
       name: "Fries",
       price: 4.99,
       quantity: 1,
-      description: "Batata frita fritafritafritafrita",
+      description: "Batata frita da casa.",
       img: Fries,
     },
   ];
 
   const addItem = (item: any) => {
-    const itemExists = items.find((i: any) => i.name === item.name);
+    const itemExists = items.find((i: any) => i.id === item.id);
     if (itemExists) {
       setItems(
         items.map((i: any) => {
-          if (i.name === item.name) {
+          if (i.id === item.id) {
             return { ...i, quantity: i.quantity + 1 };
           }
           return i;
@@ -52,20 +53,12 @@ function Menu() {
   return (
     <div>
       <Navbar items={items} setItems={setItems} />
-      <div>
-        {menu.map((item) => (
-          <div>
-            <div>{item.name}</div>
-            <div>{item.price}</div>
-            <button
-              onClick={() => {
-                addItem(item);
-              }}
-            >
-              Add to cart
-            </button>
-          </div>
-        ))}
+      <div className="flex w-full justify-center h-screen bg-[url('../../src/images/bg.webp')]">
+        <div className="max-w-7xl shadow-sm flex w-full justify-around items-center">
+          {menu.map((item) => (
+            <MenuItem item={item} items={items} setItems={setItems} />
+          ))}
+        </div>
       </div>
     </div>
   );
