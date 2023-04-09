@@ -7,9 +7,10 @@ import Finish from "./Finish";
 interface PaymentModalProps {
   open: boolean;
   setOpen: (open: boolean) => void;
+  setItems: (items: any) => void;
 }
 
-function PaymentModal({ open, setOpen }: PaymentModalProps) {
+function PaymentModal({ open, setOpen, setItems }: PaymentModalProps) {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function PaymentModal({ open, setOpen }: PaymentModalProps) {
           {step === 0 ? (
             <PaymentStep setStep={setStep} />
           ) : (
-            <Finish setOpen={setOpen} />
+            <Finish setOpen={setOpen} setItems={setItems} />
           )}
         </div>
       </div>

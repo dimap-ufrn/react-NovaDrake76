@@ -27,7 +27,7 @@ function PaymentStep({ setStep }: PaymentStepProps) {
       <div className="flex gap-4">
         {[PIX, Gpay, Paypal].map((item, index) => (
           <button
-            className="flex items-center justify-center w-32 mt-4 p-2 rounded-lg bg-gray-100"
+            className="flex items-center justify-center w-32 mt-4 p-2 rounded-lg bg-gray-100 "
             key={index}
             onClick={() => {
               setStep(1);

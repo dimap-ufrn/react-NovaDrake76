@@ -34,7 +34,11 @@ function Cart({ items, setItems }: CartProps) {
 
   return (
     <div className=" flex items-center justify-center  ">
-      <PaymentModal open={openPaymentModal} setOpen={setOpenPaymentModal} />
+      <PaymentModal
+        open={openPaymentModal}
+        setOpen={setOpenPaymentModal}
+        setItems={setItems}
+      />
       <div className="flex  flex-col md:flex-row justify-between gap-8 p-2 md:p-4 rounded-lg bg-white shadow-xl">
         <div className="flex flex-col w-full md:w-[500px] ">
           <h2 className="text-3xl font-bold underline">Carrinho de compras</h2>

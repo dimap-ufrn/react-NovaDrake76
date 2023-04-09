@@ -7,10 +7,6 @@ import MenuItem from "../../components/MenuItem";
 import Pastel from "../../images/pastel.webp";
 import Snacks from "../../images/snacks.webp";
 import Drinks from "../../images/drinks.webp";
-import Coca from "../../images/coca.webp";
-import Fanta from "../../images/fanta.webp";
-import Sprite from "../../images/sprite.webp";
-import Guarana from "../../images/guarana.webp";
 
 function Menu() {
   const [items, setItems] = useState<any>([]);
@@ -63,7 +59,7 @@ function Menu() {
           price: 5.99,
           quantity: 1,
           description: "Coca-Cola Vidro 1L.",
-          img: Coca,
+          img: Pizza,
         },
         {
           id: 5,
@@ -71,7 +67,7 @@ function Menu() {
           price: 6.99,
           quantity: 1,
           description: "Guaraná 2L.",
-          img: Guarana,
+          img: Burguer,
         },
         {
           id: 6,
@@ -79,7 +75,7 @@ function Menu() {
           price: 5.99,
           quantity: 1,
           description: "Fanta Laranja 1L.",
-          img: Fanta,
+          img: Fries,
         },
         {
           id: 7,
@@ -87,7 +83,7 @@ function Menu() {
           price: 5.99,
           quantity: 1,
           description: "Soda Sprite 1L.",
-          img: Sprite,
+          img: Pastel,
         },
       ],
     },
@@ -102,15 +98,7 @@ function Menu() {
         {menu.map((category) => {
           return (
             <div className="flex flex-col items-center gap-8 w-full justify-center">
-              <div className="flex items-center">
-                <img
-                  src={category.image}
-                  alt="category"
-                  className="w-16 h-16 object-contain"
-                />
-
-                <span className="text-4xl font-bold ">{category.name}</span>
-              </div>
+              <h1 className="text-4xl font-bold ">{category.name}</h1>
               <div className="max-w-7xl  flex w-full justify-center items-center gap-4 mt-4 md:mt-0 flex-col md:flex-row flex-wrap">
                 {category.items.map((item) => (
                   <MenuItem item={item} items={items} setItems={setItems} />

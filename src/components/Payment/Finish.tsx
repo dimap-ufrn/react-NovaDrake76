@@ -7,9 +7,10 @@ import MainButton from "../MainButton";
 
 interface FinishProps {
   setOpen: (open: boolean) => void;
+  setItems: (items: any) => void;
 }
 
-function Finish({ setOpen }: FinishProps) {
+function Finish({ setOpen, setItems }: FinishProps) {
   const [step, setStep] = useState(0);
 
   const changeStep = () => {
@@ -24,6 +25,12 @@ function Finish({ setOpen }: FinishProps) {
   useEffect(() => {
     changeStep();
   }, []);
+
+  useEffect(() => {
+    if (step === 2) {
+      setItems([]);
+    }
+  }, [step]);
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">

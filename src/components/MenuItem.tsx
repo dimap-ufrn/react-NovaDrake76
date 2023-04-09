@@ -38,19 +38,19 @@ function MenuItem({ item, items, setItems }: CartItemProps) {
 
   return (
     <div
-      className="flex flex-col rounded overflow-hidden bg-white h-fit shadow-md max-w-[288px]"
+      className="flex flex-col rounded overflow-hidden bg-white h-fit shadow-md w-fit max-w-[256px]"
       key={item.id}
     >
       <div className="overflow-hidden">
         <img
           src={item.img}
           alt={item.name}
-          className="object-cover w-72 h-64 hover:scale-110 transition duration-300 ease-in-out"
+          className="object-cover w-64 h-52 hover:scale-110 transition duration-300 ease-in-out"
         />
       </div>
       <div className="flex flex-col p-4 gap-1">
         <span className="text-xl font-medium">{item.name}</span>
-        <span className="text-lg text-[#78838c]">{item.description}</span>
+        <span className="text-lg text-[#78838c] text">{item.description}</span>
 
         <MainButton
           title={

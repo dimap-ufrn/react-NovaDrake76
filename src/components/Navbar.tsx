@@ -1,6 +1,6 @@
 import Cart from "./Cart/Cart";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "../images/logo.png";
 
 interface NavbarProps {
