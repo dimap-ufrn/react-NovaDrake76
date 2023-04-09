@@ -31,7 +31,7 @@ function Navbar({ items, setItems }: NavbarProps) {
           </div>
         </div>
         <div
-          className={`absolute flex justify-end mt-16 left-1/2 transition-all ${
+          className={`absolute flex justify-end mt-16 left:0 md:left-1/2 transition-all ${
             openCart === false ? "opacity-0 -z-10" : "opacity-100 z-10"
           }`}
         >

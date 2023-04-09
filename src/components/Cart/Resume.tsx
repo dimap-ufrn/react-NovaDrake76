@@ -8,9 +8,17 @@ interface ResumeProps {
   setCep: (cep: string) => void;
   freight: number;
   setFreight: (freight: number) => void;
+  setOpenPaymentModal: (openPaymentModal: boolean) => void;
 }
 
-function Resume({ items, cep, setCep, freight, setFreight }: ResumeProps) {
+function Resume({
+  items,
+  cep,
+  setCep,
+  freight,
+  setFreight,
+  setOpenPaymentModal,
+}: ResumeProps) {
   const resumeItems = [
     {
       section: "Resumo",
@@ -57,7 +65,7 @@ function Resume({ items, cep, setCep, freight, setFreight }: ResumeProps) {
   };
 
   return (
-    <div className="flex flex-col p-4 bg-[#03C3A4] rounded-lg text-white w-80 font- text-xl">
+    <div className="flex flex-col p-4 bg-[#03C3A4] rounded-lg text-white w-80  text-xl">
       {resumeItems.map((item, index) => (
         <div
           key={index}
@@ -96,9 +104,9 @@ function Resume({ items, cep, setCep, freight, setFreight }: ResumeProps) {
       <div className="mt-2 w-full">
         <MainButton
           title="Finalizar compra"
-          disable={items.length === 0}
+          disable={items.length === 0 || freight === 0}
           onClick={() => {
-            console.log("Finalizar compra");
+            setOpenPaymentModal(true);
           }}
         />
       </div>
