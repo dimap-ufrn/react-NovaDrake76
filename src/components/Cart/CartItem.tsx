@@ -14,6 +14,20 @@ let formatting_options = {
 };
 
 function CartItem({ item, items, setItems }: CartItemProps) {
+  const arrowAction = (action: string, item: any) => {
+    setItems(
+      items.map((i: any) => {
+        if (i.name === item.name) {
+          return {
+            ...i,
+            quantity: action === "add" ? i.quantity + 1 : i.quantity - 1,
+          };
+        }
+        return i;
+      })
+    );
+  };
+
   return (
     <div className="flex items-center gap-6 border-t-2 p-2 border-[#b0c5da] justify-between flex-col md:flex-row">
       <div className="flex items-center gap-4 w-72 flex-col md:flex-row">
@@ -35,7 +49,7 @@ function CartItem({ item, items, setItems }: CartItemProps) {
           </span>
         </div>
       </div>
-      <div className="flex gap-2 md:gap-8 items-center">
+      <div className="flex gap-2 md:gap-8 items-center justify-between w-52">
         <div className="flex items-center text-lg">
           <span>{item.quantity}</span>
           <div className="flex flex-col">
@@ -48,18 +62,7 @@ function CartItem({ item, items, setItems }: CartItemProps) {
                 }`}
                 disabled={action === "remove" && item.quantity === 1}
                 onClick={() => {
-                  setItems(
-                    items.map((i: any) => {
-                      if (i.name === item.name) {
-                        return {
-                          ...i,
-                          quantity:
-                            action === "add" ? i.quantity + 1 : i.quantity - 1,
-                        };
-                      }
-                      return i;
-                    })
-                  );
+                  arrowAction(action, item);
                 }}
               >
                 {action === "add" ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}

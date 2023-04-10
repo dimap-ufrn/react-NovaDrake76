@@ -22,7 +22,9 @@ const CepCalc = ({ cep, setCep, setFreight }: CepCalcProps) => {
           } else {
             data.uf === "RN" ? setFreight(10) : setFreight(100);
             setLocation(
-              <p className="p-0 text-sm">{data.localidade + " - " + data.uf}</p>
+              <p className="p-0 text-sm">
+                {data.logradouro + ", " + data.localidade + " - " + data.uf}
+              </p>
             );
           }
         });

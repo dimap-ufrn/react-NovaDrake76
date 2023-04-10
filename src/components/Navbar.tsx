@@ -12,9 +12,21 @@ function Navbar({ items, setItems }: NavbarProps) {
   const [openCart, setOpenCart] = useState(false);
 
   return (
-    <div className=" w-screen p-4 h-16 bg-[#03C3A4] flex items-center justify-center shadow-lg">
+    <div className=" w-screen p-4 h-16 bg-[#03C3A4] flex items-center justify-center shadow-lg z-10 fixed">
       <div className="flex max-w-7xl justify-between w-full">
-        <img src={Logo} alt="logo" width={"150px"} />
+        <img
+          src={Logo}
+          alt="logo"
+          width={"150px"}
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+
+              behavior: "smooth",
+            });
+          }}
+          className="cursor-pointer"
+        />
         <div
           className="flex items-center cursor-pointer"
           onClick={() => setOpenCart(!openCart)}
@@ -32,7 +44,9 @@ function Navbar({ items, setItems }: NavbarProps) {
         </div>
         <div
           className={`absolute flex justify-end mt-16 left:0 md:left-1/2 transition-all ${
-            openCart === false ? "opacity-0 -z-10" : "opacity-100 z-10"
+            openCart === false
+              ? "opacity-0 -z-10 h-0 overflow-hidden"
+              : "opacity-100 z-10 "
           }`}
         >
           <Cart items={items} setItems={setItems} />
