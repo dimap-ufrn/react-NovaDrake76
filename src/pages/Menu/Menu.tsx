@@ -17,7 +17,10 @@ function Menu() {
       >
         {MenuItems.map((category) => {
           return (
-            <div className="flex flex-col items-center gap-8 w-full justify-center p-4">
+            <div
+              className="flex flex-col items-center gap-8 w-full justify-center p-4"
+              key={category.name}
+            >
               <div className="flex items-center">
                 <img
                   src={category.image}

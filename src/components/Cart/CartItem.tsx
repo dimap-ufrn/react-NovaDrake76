@@ -17,7 +17,7 @@ function CartItem({ item, items, setItems }: CartItemProps) {
   const arrowAction = (action: string, item: any) => {
     setItems(
       items.map((i: any) => {
-        if (i.name === item.name) {
+        if (i.id === item.id) {
           return {
             ...i,
             quantity: action === "add" ? i.quantity + 1 : i.quantity - 1,
@@ -29,7 +29,10 @@ function CartItem({ item, items, setItems }: CartItemProps) {
   };
 
   return (
-    <div className="flex items-center gap-6 border-t-2 p-2 border-[#b0c5da] justify-between flex-col md:flex-row">
+    <div
+      className="flex items-center gap-6 border-t-2 p-2 border-[#b0c5da] justify-between flex-col md:flex-row"
+      key={item.id}
+    >
       <div className="flex items-center gap-4 w-72 flex-col md:flex-row">
         <img
           src={item.img}

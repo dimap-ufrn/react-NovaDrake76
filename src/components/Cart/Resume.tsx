@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainButton from "../MainButton";
 import CepCalc from "../CepCalc";
 
@@ -19,6 +19,7 @@ function Resume({
   setFreight,
   setOpenPaymentModal,
 }: ResumeProps) {
+  const [order, setOrder] = useState<any>([]);
   const resumeItems = [
     {
       section: "Resumo",
@@ -64,6 +65,14 @@ function Resume({
     minimumFractionDigits: 2,
   };
 
+  useEffect(() => {
+    setOrder({
+      items: items,
+      cep: cep,
+      freight: freight,
+    });
+  }, [items, cep, freight]);
+
   return (
     <div className="flex flex-col p-4 bg-[#03C3A4] rounded-lg text-white w-80  text-xl">
       {resumeItems.map((item, index) => (
@@ -107,6 +116,7 @@ function Resume({
           disable={items.length === 0 || freight === 0}
           onClick={() => {
             setOpenPaymentModal(true);
+            console.log(order);
           }}
         />
       </div>
